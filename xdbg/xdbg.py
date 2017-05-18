@@ -202,6 +202,8 @@ class Debugger():
             module = sys.modules[module_name]
         except KeyError:
             module = self.main_module
+        except TypeError:
+            module = self.main_module
 
         if 'get_ipython' not in module.__dict__:
             module.get_ipython = get_ipython
